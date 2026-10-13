@@ -177,6 +177,7 @@ function Hero() {
           <a className="hero-scroll" href="#tentang"><span className="scroll-icon"><ArrowDown aria-hidden="true" /></span> Gulir untuk mengenal lebih jauh</a>
         </div>
         <div className="hero-aside" aria-label="Bidang fokus">
+          <img className="hero-profile-photo" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-10%20at%2018.52.31-3Uzc5K2GIyqEX0nDl0KlxVneKafQAM.jpeg" alt="Potret Muhammad Ilham Satria mengenakan seragam merah Telkom Malang" width={354} height={472} />
           <div className="hero-index">01 / 07</div>
           <div className="hero-aside-line" />
           <div className="hero-focus">

@@ -109,6 +109,7 @@ button { color: inherit; }
 .scroll-icon { width: 27px; height: 27px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; }
 .scroll-icon svg { width: 13px; height: 13px; }
 .hero-aside { align-self: stretch; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; padding-top: 36px; color: #d5e0e8; }
+.hero-profile-photo { width: 116px; height: 154px; margin-bottom: 4px; object-fit: cover; object-position: center 30%; border: 2px solid rgba(255,255,255,.72); border-radius: 9px; box-shadow: 0 12px 32px rgba(0,0,0,.28); }
 .hero-index { color: #b5c4cf; font-size: 10px; letter-spacing: .13em; }
 .hero-aside-line { width: 1px; height: 70px; margin: 18px 8px 20px 0; background: linear-gradient(transparent, #ed8152, transparent); }
 .hero-focus { text-align: right; }
