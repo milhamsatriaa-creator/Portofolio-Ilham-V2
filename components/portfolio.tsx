@@ -8,7 +8,6 @@ import {
   Award,
   Cable,
   Check,
-  Cpu,
   Download,
   ExternalLink,
   Gauge,
@@ -220,7 +219,7 @@ function AboutEducation() {
           </div>
           <article className="education-card" id="edukasi">
             <div className="education-topline"><span className="mini-label">PENDIDIKAN</span><span className="education-period">2024 — 2027</span></div>
-            <div className="school-symbol"><Cpu aria-hidden="true" /></div>
+            <img className="school-logo" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-zc09Sj5BcHh2gEalyuWDNQjIQpHrOX.png" alt="Logo SMK Telkom Malang" width={315} height={323} />
             <h3>SMK Telkom Malang</h3>
             <p className="school-location">Malang, Jawa Timur</p>
             <div className="education-divider" />
