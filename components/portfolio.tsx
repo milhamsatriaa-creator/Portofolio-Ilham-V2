@@ -8,7 +8,6 @@ import {
   Award,
   Cable,
   Check,
-  Cpu,
   Download,
   ExternalLink,
   Gauge,
@@ -177,6 +176,7 @@ function Hero() {
           <a className="hero-scroll" href="#tentang"><span className="scroll-icon"><ArrowDown aria-hidden="true" /></span> Gulir untuk mengenal lebih jauh</a>
         </div>
         <div className="hero-aside" aria-label="Bidang fokus">
+          <img className="hero-profile-photo" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-10%20at%2018.52.31-3Uzc5K2GIyqEX0nDl0KlxVneKafQAM.jpeg" alt="Potret Muhammad Ilham Satria mengenakan seragam merah Telkom Malang" width={354} height={472} />
           <div className="hero-index">01 / 07</div>
           <div className="hero-aside-line" />
           <div className="hero-focus">
@@ -199,8 +199,9 @@ function ContactStrip() {
     <div className="contact-strip" aria-label="Informasi kontak">
       <a href="mailto:milhamsatriaa@gmail.com"><span className="contact-icon"><Mail aria-hidden="true" /></span><span><small>EMAIL</small>milhamsatriaa@gmail.com</span><ArrowUpRight className="contact-arrow" aria-hidden="true" /></a>
       <a href="https://wa.me/6285258915499" target="_blank" rel="noreferrer"><span className="contact-icon"><Phone aria-hidden="true" /></span><span><small>WHATSAPP / TELEPON</small>+62 852-5891-5499</span><ArrowUpRight className="contact-arrow" aria-hidden="true" /></a>
-      <a href="https://www.linkedin.com" target="_blank" rel="noreferrer"><span className="contact-icon"><ExternalLink aria-hidden="true" /></span><span><small>LINKEDIN</small>www.LinkedIn.com</span><ArrowUpRight className="contact-arrow" aria-hidden="true" /></a>
-    </div>
+  <a href="https://www.linkedin.com" target="_blank" rel="noreferrer"><span className="contact-icon"><ExternalLink aria-hidden="true" /></span><span><small>LINKEDIN</small>www.LinkedIn.com</span><ArrowUpRight className="contact-arrow" aria-hidden="true" /></a>
+  <a href="https://www.instagram.com/milhamsatriaa/" target="_blank" rel="noreferrer"><span className="contact-icon" aria-hidden="true">◎</span><span><small>INSTAGRAM</small>@milhamsatriaa</span><ArrowUpRight className="contact-arrow" aria-hidden="true" /></a>
+  </div>
   )
 }
 
@@ -218,7 +219,7 @@ function AboutEducation() {
           </div>
           <article className="education-card" id="edukasi">
             <div className="education-topline"><span className="mini-label">PENDIDIKAN</span><span className="education-period">2024 — 2027</span></div>
-            <div className="school-symbol"><Cpu aria-hidden="true" /></div>
+            <img className="school-logo" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-zc09Sj5BcHh2gEalyuWDNQjIQpHrOX.png" alt="Logo SMK Telkom Malang" width={315} height={323} />
             <h3>SMK Telkom Malang</h3>
             <p className="school-location">Malang, Jawa Timur</p>
             <div className="education-divider" />

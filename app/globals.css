@@ -109,6 +109,7 @@ button { color: inherit; }
 .scroll-icon { width: 27px; height: 27px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; }
 .scroll-icon svg { width: 13px; height: 13px; }
 .hero-aside { align-self: stretch; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; padding-top: 36px; color: #d5e0e8; }
+.hero-profile-photo { width: 116px; height: 154px; margin-bottom: 4px; object-fit: cover; object-position: center 30%; border: 2px solid rgba(255,255,255,.72); border-radius: 9px; box-shadow: 0 12px 32px rgba(0,0,0,.28); }
 .hero-index { color: #b5c4cf; font-size: 10px; letter-spacing: .13em; }
 .hero-aside-line { width: 1px; height: 70px; margin: 18px 8px 20px 0; background: linear-gradient(transparent, #ed8152, transparent); }
 .hero-focus { text-align: right; }
@@ -147,8 +148,7 @@ button { color: inherit; }
 .education-card { padding: 24px 26px; background: #f6f8fa; border: 1px solid #e8ebef; border-radius: 8px; scroll-margin-top: 90px; }
 .education-topline { display: flex; align-items: center; justify-content: space-between; }
 .education-period { color: #8c98a5; font-size: 10px; font-weight: 700; letter-spacing: .08em; }
-.school-symbol { width: 42px; height: 42px; display: grid; place-items: center; margin: 25px 0 15px; color: white; background: var(--navy); border-radius: 10px; }
-.school-symbol svg { width: 20px; height: 20px; }
+.school-logo { display: block; width: 108px; height: 110px; margin: 20px 0 14px; object-fit: contain; background: white; border: 1px solid #e8ebef; border-radius: 7px; }
 .education-card h3 { margin: 0; color: var(--navy); font-size: 20px; letter-spacing: -.025em; }
 .school-location { margin: 6px 0 0; color: var(--muted); font-size: 12px; }
 .education-divider { height: 1px; margin: 19px 0; background: #e2e6ea; }
