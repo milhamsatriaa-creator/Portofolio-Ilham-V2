@@ -133,7 +133,7 @@ function Header() {
       <div className="header-inner">
         <a className="brand" href="#home" aria-label="Muhammad Ilham Satria, beranda">
           <span className="brand-mark"><Network aria-hidden="true" /></span>
-          <span className="brand-name">ILHAM SATRIA<span>NETWORK TECHNICIAN</span></span>
+          <span className="brand-name">MUHAMMAD ILHAM SATRIA<span>NETWORK TECHNICIAN</span></span>
         </a>
         <button
           className="menu-toggle"
@@ -163,7 +163,7 @@ function Hero() {
       <div className="hero-content page-width">
         <div className="hero-copy">
           <div className="availability"><span /> TERBUKA UNTUK PELUANG MAGANG</div>
-          <p className="hero-kicker">NETWORK TECHNICIAN <span>·</span> MALANG, INDONESIA</p>
+          <p className="hero-kicker">MUHAMMAD ILHAM SATRIA <span>·</span> NETWORK TECHNICIAN</p>
           <h1 id="hero-title">Membangun koneksi.<br /><span>Menghubungkan masa depan.</span></h1>
           <p className="hero-description">
             Saya <strong>Muhammad Ilham Satria</strong>, teknisi jaringan dan fiber optik dengan fokus pada konektivitas yang andal, presisi, dan siap mendukung operasional FTTx.
