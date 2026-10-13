@@ -200,8 +200,9 @@ function ContactStrip() {
     <div className="contact-strip" aria-label="Informasi kontak">
       <a href="mailto:milhamsatriaa@gmail.com"><span className="contact-icon"><Mail aria-hidden="true" /></span><span><small>EMAIL</small>milhamsatriaa@gmail.com</span><ArrowUpRight className="contact-arrow" aria-hidden="true" /></a>
       <a href="https://wa.me/6285258915499" target="_blank" rel="noreferrer"><span className="contact-icon"><Phone aria-hidden="true" /></span><span><small>WHATSAPP / TELEPON</small>+62 852-5891-5499</span><ArrowUpRight className="contact-arrow" aria-hidden="true" /></a>
-      <a href="https://www.linkedin.com" target="_blank" rel="noreferrer"><span className="contact-icon"><ExternalLink aria-hidden="true" /></span><span><small>LINKEDIN</small>www.LinkedIn.com</span><ArrowUpRight className="contact-arrow" aria-hidden="true" /></a>
-    </div>
+  <a href="https://www.linkedin.com" target="_blank" rel="noreferrer"><span className="contact-icon"><ExternalLink aria-hidden="true" /></span><span><small>LINKEDIN</small>www.LinkedIn.com</span><ArrowUpRight className="contact-arrow" aria-hidden="true" /></a>
+  <a href="https://www.instagram.com/milhamsatriaa/" target="_blank" rel="noreferrer"><span className="contact-icon" aria-hidden="true">◎</span><span><small>INSTAGRAM</small>@milhamsatriaa</span><ArrowUpRight className="contact-arrow" aria-hidden="true" /></a>
+  </div>
   )
 }
 
