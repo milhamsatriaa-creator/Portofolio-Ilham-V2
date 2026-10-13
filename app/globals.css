@@ -223,6 +223,13 @@ button { color: inherit; }
 .cert-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 17px; border-top: 1px solid #e4e8ec; color: #8c98a3; font-size: 7px; font-weight: 800; letter-spacing: .09em; }
 .cert-footer span:last-child { display: inline-flex; align-items: center; gap: 5px; color: #45936d; }
 .cert-footer svg { width: 12px; height: 12px; }
+.cert-actions { display: flex; align-items: center; gap: 9px; margin-top: 13px; }
+.cert-actions a { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; color: var(--navy); background: white; border: 1px solid #dce3e8; border-radius: 4px; font-size: 9px; font-weight: 700; text-decoration: none; transition: border-color .2s ease, color .2s ease, transform .2s ease; }
+.cert-actions a:hover { color: var(--orange); border-color: var(--orange); transform: translateY(-1px); }
+.cert-actions a:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+.cert-actions svg { width: 13px; height: 13px; }
+.cert-preview { width: 100%; height: 132px; margin-top: 13px; object-fit: cover; object-position: center 45%; border: 1px solid #e1e6ea; border-radius: 4px; background: white; }
+.cert-card-image h3 { margin-top: 13px; }
 .award-card { display: flex; flex-direction: column; background: var(--navy); border-color: var(--navy); color: white; }
 .award-kicker { display: flex; align-items: center; gap: 7px; color: #b9c8d3; font-size: 8px; font-weight: 800; letter-spacing: .11em; }
 .award-kicker svg { width: 14px; height: 14px; color: #f19a70; }

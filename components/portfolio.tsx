@@ -318,19 +318,101 @@ function Experience() {
   )
 }
 
+type Certificate = {
+  issuer: string
+  title: string
+  description: string
+  href: string
+  image?: string
+}
+
+const certificates: Certificate[] = [
+  {
+    issuer: 'CERTIPORT · NETWORKING',
+    title: 'Networking',
+    description: 'Sertifikasi Networking Certiport, diterbitkan 24 September 2026.',
+    href: '/certificates/certiport-networking.pdf',
+  },
+  {
+    issuer: 'CISCO NETWORKING ACADEMY',
+    title: 'CCNA: Switching, Routing, and Wireless Essentials',
+    description: 'Sertifikat penyelesaian kompetensi switching, routing, dan wireless networking · 6 Agustus 2026.',
+    href: '/certificates/ccna-switching-routing-wireless-essentials.pdf',
+  },
+  {
+    issuer: 'SMK TELKOM MALANG · KETERCAPAIAN',
+    title: 'Small-Scale Network Architecture for Peer-to-Peer Communication and File Sharing',
+    description: 'Uji kenaikan tingkat dengan predikat Excellent · 2 Desember 2024.',
+    href: '/certificates/moklet-level-1-peer-to-peer-networking.pdf',
+  },
+  {
+    issuer: 'SMK TELKOM MALANG · KEIKUTSERTAAN',
+    title: 'Sertifikat Keikutsertaan',
+    description: 'Sertifikat keikutsertaan tingkat pertama program keahlian TKJ.',
+    href: '/certificates/moklet-level-1-participation.pdf',
+  },
+  {
+    issuer: 'SMK TELKOM MALANG · SEMESTER GENAP',
+    title: 'Sertifikat Keikutsertaan Semester Genap',
+    description: 'Sertifikat keikutsertaan program keahlian TKJ semester genap.',
+    href: '/certificates/moklet-semester-genap-participation.pdf',
+  },
+  {
+    issuer: 'SMK TELKOM MALANG · KETERCAPAIAN',
+    title: 'Building the Foundation of Networking and System Administration',
+    description: 'Uji kenaikan tingkat dengan predikat Excellent · 19 Mei 2025.',
+    href: '/certificates/moklet-networking-system-administration.pdf',
+  },
+  {
+    issuer: 'GLOBALXTREME · BEASISWA',
+    title: 'Beasiswa dan Ikatan Kerja GlobalXtreme',
+    description: 'Sertifikat beasiswa dan ikatan kerja yang diberikan oleh GlobalXtreme.',
+    href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Beasiswa%20Dan%20Ikatan%20Kerja%20GlobalXtreme-Le3BhtQkpoNOZIePA5r02luLKvuTz3.jpeg',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Beasiswa%20Dan%20Ikatan%20Kerja%20GlobalXtreme-Le3BhtQkpoNOZIePA5r02luLKvuTz3.jpeg',
+  },
+  {
+    issuer: 'SMK TELKOM MALANG · UJI KOMPETENSI',
+    title: 'Sertifikat Mengikuti UUK',
+    description: 'Penyelesaian Uji Unit Kompetensi bidang infrastruktur jaringan, MikroTik, dan Multi-Service Server.',
+    href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sertifikat%20Mengikuti%20UUK-sfEMd8Mf5NSlsnOXLlMES3kULS1iJu.jpeg',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sertifikat%20Mengikuti%20UUK-sfEMd8Mf5NSlsnOXLlMES3kULS1iJu.jpeg',
+  },
+  {
+    issuer: 'D-NET · KUNJUNGAN INDUSTRI',
+    title: 'Partisipasi sebagai Peserta D-Net',
+    description: 'Sertifikat partisipasi dalam kegiatan kunjungan industri SMK Telkom Malang.',
+    href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sertifikat%20Partisipasi%20Sebagai%20Peserta%20D-Net-WWD8Y5C5z8lehQSKOfo1yStYdKjhyN.jpeg',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sertifikat%20Partisipasi%20Sebagai%20Peserta%20D-Net-WWD8Y5C5z8lehQSKOfo1yStYdKjhyN.jpeg',
+  },
+  {
+    issuer: 'OMADATA · KUNJUNGAN INDUSTRI',
+    title: 'Partisipasi sebagai Peserta Omadata',
+    description: 'Sertifikat partisipasi dalam kegiatan kunjungan ke Omadata Surabaya Data Center.',
+    href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sertifikat%20Partisipasi%20Sebagai%20Peserta%20Omadata-IqpvHb9zZNxgXGnY55DKmZLVGA2U35.jpeg',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sertifikat%20Partisipasi%20Sebagai%20Peserta%20Omadata-IqpvHb9zZNxgXGnY55DKmZLVGA2U35.jpeg',
+  },
+]
+
 function Achievements() {
   return (
     <section className="achievement-section section-pad" id="pencapaian">
       <div className="page-width">
         <SectionHeading number="05" eyebrow="SERTIFIKASI & PRESTASI" title="Kompetensi yang dibuktikan." description="Bekal sertifikasi jaringan dan kontribusi nyata di lingkungan sekolah." />
         <div className="achievement-grid">
-          <article className="cert-card">
-            <div className="cert-top"><span className="cert-seal"><Award aria-hidden="true" /></span><span className="cert-status">SERTIFIKASI RESMI</span></div>
-            <div className="cert-label">CISCO NETWORKING</div>
-            <h3>CCNA: Switching, Routing, and Wireless Essentials</h3>
-            <p>Kompetensi dasar switching, routing, dan wireless networking.</p>
-            <div className="cert-footer"><span>NETWORKING FUNDAMENTALS</span><span><Check aria-hidden="true" /> TERVERIFIKASI</span></div>
-          </article>
+          {certificates.map((certificate) => (
+            <article className={`cert-card${certificate.image ? ' cert-card-image' : ''}`} key={certificate.href}>
+              <div className="cert-top"><span className="cert-seal"><Award aria-hidden="true" /></span><span className="cert-status">DOKUMEN RESMI</span></div>
+              <div className="cert-label">{certificate.issuer}</div>
+              {certificate.image && <img className="cert-preview" src={certificate.image} alt={`Pratinjau ${certificate.title}`} loading="lazy" />}
+              <h3>{certificate.title}</h3>
+              <p>{certificate.description}</p>
+              <div className="cert-footer"><span>{certificate.image ? 'IMAGE · SERTIFIKAT' : 'PDF · SERTIFIKAT'}</span><span><Check aria-hidden="true" /> TERSEDIA</span></div>
+              <div className="cert-actions">
+                <a href={certificate.href} target="_blank" rel="noreferrer"><ExternalLink aria-hidden="true" /> {certificate.image ? 'Lihat gambar' : 'Lihat PDF'}</a>
+                {!certificate.image && <a href={certificate.href} download><Download aria-hidden="true" /> Unduh</a>}
+              </div>
+            </article>
+          ))}
           <article className="award-card">
             <span className="award-kicker"><Trophy aria-hidden="true" /> PENGHARGAAN TIM</span>
             <h3>Juara Madya 2</h3>
