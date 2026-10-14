@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   ArrowDown,
   ArrowRight,
@@ -176,7 +176,6 @@ function Hero() {
           <a className="hero-scroll" href="#tentang"><span className="scroll-icon"><ArrowDown aria-hidden="true" /></span> Gulir untuk mengenal lebih jauh</a>
         </div>
         <div className="hero-aside" aria-label="Bidang fokus">
-          <img className="hero-profile-photo" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-10%20at%2018.52.31-3Uzc5K2GIyqEX0nDl0KlxVneKafQAM.jpeg" alt="Potret Muhammad Ilham Satria mengenakan seragam merah Telkom Malang" width={354} height={472} />
           <div className="hero-index">01 / 07</div>
           <div className="hero-aside-line" />
           <div className="hero-focus">
@@ -213,6 +212,7 @@ function AboutEducation() {
         <div className="about-grid">
           <div className="about-copy">
             <span className="mini-label"><Sparkles aria-hidden="true" /> TENTANG SAYA</span>
+            <img className="about-profile-photo" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-10%20at%2018.52.31-3Uzc5K2GIyqEX0nDl0KlxVneKafQAM.jpeg" alt="Potret Muhammad Ilham Satria mengenakan seragam merah Telkom Malang" width={354} height={472} />
             <p className="about-lead">Merawat detail kecil agar jaringan besar tetap berjalan.</p>
             <p className="body-copy">Teknisi Jaringan & Fiber Optik berlatar belakang pendidikan SMK Telkom Malang dengan sertifikasi resmi CCNA: Switching, Routing, and Wireless Essentials. Memiliki keahlian teknis presisi tinggi dalam penyambungan serat optik (Fusion Splicing) dengan pencapaian tingkat redaman hingga 0.1 dB, pengujian redaman optik, serta penguasaan konfigurasi perangkat MikroTik dan Cisco. Diperkuat pengalaman kepemimpinan sebagai Kapten Tim Basket dan kedisiplinan Paskibra, memiliki kemampuan problem solving, analytical thinking, serta stamina lapangan yang tangguh untuk mendukung operasional FTTx di GlobalXtreme.</p>
             <div className="trait-list"><span><Check aria-hidden="true" /> Problem solving</span><span><Check aria-hidden="true" /> Analytical thinking</span><span><Check aria-hidden="true" /> Siap kerja lapangan</span></div>
@@ -324,6 +324,7 @@ type Certificate = {
   description: string
   href: string
   image?: string
+  rotated?: boolean
 }
 
 const certificates: Certificate[] = [
@@ -369,6 +370,7 @@ const certificates: Certificate[] = [
     description: 'Sertifikat beasiswa dan ikatan kerja yang diberikan oleh GlobalXtreme.',
     href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Beasiswa%20Dan%20Ikatan%20Kerja%20GlobalXtreme-Le3BhtQkpoNOZIePA5r02luLKvuTz3.jpeg',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Beasiswa%20Dan%20Ikatan%20Kerja%20GlobalXtreme-Le3BhtQkpoNOZIePA5r02luLKvuTz3.jpeg',
+    rotated: true,
   },
   {
     issuer: 'SMK TELKOM MALANG · UJI KOMPETENSI',
@@ -376,6 +378,7 @@ const certificates: Certificate[] = [
     description: 'Penyelesaian Uji Unit Kompetensi bidang infrastruktur jaringan, MikroTik, dan Multi-Service Server.',
     href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sertifikat%20Mengikuti%20UUK-sfEMd8Mf5NSlsnOXLlMES3kULS1iJu.jpeg',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sertifikat%20Mengikuti%20UUK-sfEMd8Mf5NSlsnOXLlMES3kULS1iJu.jpeg',
+    rotated: true,
   },
   {
     issuer: 'D-NET · KUNJUNGAN INDUSTRI',
@@ -390,44 +393,81 @@ const certificates: Certificate[] = [
     description: 'Sertifikat partisipasi dalam kegiatan kunjungan ke Omadata Surabaya Data Center.',
     href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sertifikat%20Partisipasi%20Sebagai%20Peserta%20Omadata-IqpvHb9zZNxgXGnY55DKmZLVGA2U35.jpeg',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sertifikat%20Partisipasi%20Sebagai%20Peserta%20Omadata-IqpvHb9zZNxgXGnY55DKmZLVGA2U35.jpeg',
+    rotated: true,
   },
 ]
 
 function Achievements() {
+  const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null)
+  const dialogRef = useRef<HTMLDialogElement>(null)
+
+  useEffect(() => {
+    const dialog = dialogRef.current
+    if (!dialog) return
+
+    if (selectedCertificate && !dialog.open) dialog.showModal()
+    if (!selectedCertificate && dialog.open) dialog.close()
+  }, [selectedCertificate])
+
   return (
-    <section className="achievement-section section-pad" id="pencapaian">
-      <div className="page-width">
-        <SectionHeading number="05" eyebrow="SERTIFIKASI & PRESTASI" title="Kompetensi yang dibuktikan." description="Bekal sertifikasi jaringan dan kontribusi nyata di lingkungan sekolah." />
-        <div className="achievement-grid">
-          {certificates.map((certificate) => (
-            <article className={`cert-card${certificate.image ? ' cert-card-image' : ''}`} key={certificate.href}>
-              <div className="cert-top"><span className="cert-seal"><Award aria-hidden="true" /></span><span className="cert-status">DOKUMEN RESMI</span></div>
-              <div className="cert-label">{certificate.issuer}</div>
-              {certificate.image && <img className="cert-preview" src={certificate.image} alt={`Pratinjau ${certificate.title}`} loading="lazy" />}
-              <h3>{certificate.title}</h3>
-              <p>{certificate.description}</p>
-              <div className="cert-footer"><span>{certificate.image ? 'IMAGE · SERTIFIKAT' : 'PDF · SERTIFIKAT'}</span><span><Check aria-hidden="true" /> TERSEDIA</span></div>
-              <div className="cert-actions">
-                <a href={certificate.href} target="_blank" rel="noreferrer"><ExternalLink aria-hidden="true" /> {certificate.image ? 'Lihat gambar' : 'Lihat PDF'}</a>
-                {!certificate.image && <a href={certificate.href} download><Download aria-hidden="true" /> Unduh</a>}
-              </div>
+    <>
+      <section className="achievement-section section-pad" id="pencapaian">
+        <div className="page-width">
+          <SectionHeading number="05" eyebrow="SERTIFIKASI & PRESTASI" title="Kompetensi yang dibuktikan." description="Bekal sertifikasi jaringan dan kontribusi nyata di lingkungan sekolah." />
+          <div className="achievement-grid">
+            {certificates.map((certificate) => (
+              <article className={`cert-card${certificate.image ? ' cert-card-image' : ''}`} key={certificate.href}>
+                <div className="cert-top"><span className="cert-seal"><Award aria-hidden="true" /></span><span className="cert-status">DOKUMEN RESMI</span></div>
+                <div className="cert-label">{certificate.issuer}</div>
+                {certificate.image && <img className={`cert-preview${certificate.rotated ? ' cert-preview-rotated' : ''}`} src={certificate.image} alt={`Pratinjau ${certificate.title}`} loading="lazy" />}
+                <h3>{certificate.title}</h3>
+                <p>{certificate.description}</p>
+                <div className="cert-footer"><span>{certificate.image ? 'IMAGE · SERTIFIKAT' : 'PDF · SERTIFIKAT'}</span><span><Check aria-hidden="true" /> TERSEDIA</span></div>
+                <div className="cert-actions">
+                  {certificate.image ? (
+                    <button type="button" onClick={() => setSelectedCertificate(certificate)}><ExternalLink aria-hidden="true" /> Lihat gambar</button>
+                  ) : (
+                    <a href={certificate.href} target="_blank" rel="noreferrer"><ExternalLink aria-hidden="true" /> Lihat PDF</a>
+                  )}
+                  {!certificate.image && <a href={certificate.href} download><Download aria-hidden="true" /> Unduh</a>}
+                </div>
+              </article>
+            ))}
+            <article className="award-card">
+              <span className="award-kicker"><Trophy aria-hidden="true" /> PENGHARGAAN TIM</span>
+              <h3>Juara Madya 2</h3>
+              <p>Lomba Keterampilan Baris Berbaris (LKBB) SMKN 8 Malang bersama tim PASKATEMA.</p>
+              <span className="award-year">2025—2026 <ArrowUpRight aria-hidden="true" /></span>
             </article>
-          ))}
-          <article className="award-card">
-            <span className="award-kicker"><Trophy aria-hidden="true" /> PENGHARGAAN TIM</span>
-            <h3>Juara Madya 2</h3>
-            <p>Lomba Keterampilan Baris Berbaris (LKBB) SMKN 8 Malang bersama tim PASKATEMA.</p>
-            <span className="award-year">2025—2026 <ArrowUpRight aria-hidden="true" /></span>
-          </article>
-          <article className="award-card award-card-orange">
-            <span className="award-kicker"><Trophy aria-hidden="true" /> PENCAPAIAN OLAHRAGA</span>
-            <h3>Roaster Putra DBL</h3>
-            <p>Terpilih sebagai Roaster Putra untuk Lomba DBL tahun 2026 melalui ekstrakurikuler basket.</p>
-            <span className="award-year">2026 <ArrowUpRight aria-hidden="true" /></span>
-          </article>
+            <article className="award-card award-card-orange">
+              <span className="award-kicker"><Trophy aria-hidden="true" /> PENCAPAIAN OLAHRAGA</span>
+              <h3>Roaster Putra DBL</h3>
+              <p>Terpilih sebagai Roaster Putra untuk Lomba DBL tahun 2026 melalui ekstrakurikuler basket.</p>
+              <span className="award-year">2026 <ArrowUpRight aria-hidden="true" /></span>
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <dialog
+        ref={dialogRef}
+        className="certificate-dialog"
+        aria-label="Pratinjau sertifikat"
+        onCancel={(event) => {
+          event.preventDefault()
+          setSelectedCertificate(null)
+        }}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) setSelectedCertificate(null)
+        }}
+      >
+        {selectedCertificate?.image && (
+          <div className="certificate-dialog-content">
+            <button className="certificate-dialog-close" type="button" onClick={() => setSelectedCertificate(null)}>Tutup</button>
+            <img className={selectedCertificate.rotated ? 'certificate-dialog-image-rotated' : undefined} src={selectedCertificate.image} alt={selectedCertificate.title} />
+          </div>
+        )}
+      </dialog>
+    </>
   )
 }
 
