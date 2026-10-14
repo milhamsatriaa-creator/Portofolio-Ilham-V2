@@ -324,6 +324,7 @@ type Certificate = {
   description: string
   href: string
   image?: string
+  rotateInModal?: boolean
 }
 
 const certificates: Certificate[] = [
@@ -369,6 +370,7 @@ const certificates: Certificate[] = [
     description: 'Sertifikat beasiswa dan ikatan kerja yang diberikan oleh GlobalXtreme.',
     href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Beasiswa%20Dan%20Ikatan%20Kerja%20GlobalXtreme-Le3BhtQkpoNOZIePA5r02luLKvuTz3.jpeg',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Beasiswa%20Dan%20Ikatan%20Kerja%20GlobalXtreme-Le3BhtQkpoNOZIePA5r02luLKvuTz3.jpeg',
+    rotateInModal: true,
   },
   {
     issuer: 'SMK TELKOM MALANG · UJI KOMPETENSI',
@@ -376,6 +378,7 @@ const certificates: Certificate[] = [
     description: 'Penyelesaian Uji Unit Kompetensi bidang infrastruktur jaringan, MikroTik, dan Multi-Service Server.',
     href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sertifikat%20Mengikuti%20UUK-sfEMd8Mf5NSlsnOXLlMES3kULS1iJu.jpeg',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sertifikat%20Mengikuti%20UUK-sfEMd8Mf5NSlsnOXLlMES3kULS1iJu.jpeg',
+    rotateInModal: true,
   },
   {
     issuer: 'D-NET · KUNJUNGAN INDUSTRI',
@@ -390,6 +393,7 @@ const certificates: Certificate[] = [
     description: 'Sertifikat partisipasi dalam kegiatan kunjungan ke Omadata Surabaya Data Center.',
     href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sertifikat%20Partisipasi%20Sebagai%20Peserta%20Omadata-IqpvHb9zZNxgXGnY55DKmZLVGA2U35.jpeg',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sertifikat%20Partisipasi%20Sebagai%20Peserta%20Omadata-IqpvHb9zZNxgXGnY55DKmZLVGA2U35.jpeg',
+    rotateInModal: true,
   },
 ]
 
@@ -460,7 +464,11 @@ function Achievements() {
           <div className="certificate-dialog-content">
             <button className="certificate-dialog-close" type="button" onClick={() => setSelectedCertificate(null)}>Tutup</button>
             <div className="certificate-dialog-image-frame">
-              <img src={selectedCertificate.image} alt={selectedCertificate.title} />
+              <img
+                className={selectedCertificate.rotateInModal ? 'cert-preview-rotated' : undefined}
+                src={selectedCertificate.image}
+                alt={selectedCertificate.title}
+              />
             </div>
           </div>
         )}
