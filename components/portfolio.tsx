@@ -324,7 +324,6 @@ type Certificate = {
   description: string
   href: string
   image?: string
-  rotated?: boolean
 }
 
 const certificates: Certificate[] = [
@@ -370,7 +369,6 @@ const certificates: Certificate[] = [
     description: 'Sertifikat beasiswa dan ikatan kerja yang diberikan oleh GlobalXtreme.',
     href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Beasiswa%20Dan%20Ikatan%20Kerja%20GlobalXtreme-Le3BhtQkpoNOZIePA5r02luLKvuTz3.jpeg',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Beasiswa%20Dan%20Ikatan%20Kerja%20GlobalXtreme-Le3BhtQkpoNOZIePA5r02luLKvuTz3.jpeg',
-    rotated: true,
   },
   {
     issuer: 'SMK TELKOM MALANG · UJI KOMPETENSI',
@@ -378,7 +376,6 @@ const certificates: Certificate[] = [
     description: 'Penyelesaian Uji Unit Kompetensi bidang infrastruktur jaringan, MikroTik, dan Multi-Service Server.',
     href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sertifikat%20Mengikuti%20UUK-sfEMd8Mf5NSlsnOXLlMES3kULS1iJu.jpeg',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sertifikat%20Mengikuti%20UUK-sfEMd8Mf5NSlsnOXLlMES3kULS1iJu.jpeg',
-    rotated: true,
   },
   {
     issuer: 'D-NET · KUNJUNGAN INDUSTRI',
@@ -393,7 +390,6 @@ const certificates: Certificate[] = [
     description: 'Sertifikat partisipasi dalam kegiatan kunjungan ke Omadata Surabaya Data Center.',
     href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sertifikat%20Partisipasi%20Sebagai%20Peserta%20Omadata-IqpvHb9zZNxgXGnY55DKmZLVGA2U35.jpeg',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sertifikat%20Partisipasi%20Sebagai%20Peserta%20Omadata-IqpvHb9zZNxgXGnY55DKmZLVGA2U35.jpeg',
-    rotated: true,
   },
 ]
 
@@ -419,7 +415,7 @@ function Achievements() {
               <article className={`cert-card${certificate.image ? ' cert-card-image' : ''}`} key={certificate.href}>
                 <div className="cert-top"><span className="cert-seal"><Award aria-hidden="true" /></span><span className="cert-status">DOKUMEN RESMI</span></div>
                 <div className="cert-label">{certificate.issuer}</div>
-                {certificate.image && <img className={`cert-preview${certificate.rotated ? ' cert-preview-rotated' : ''}`} src={certificate.image} alt={`Pratinjau ${certificate.title}`} loading="lazy" />}
+                {certificate.image && <div className="cert-preview-frame"><img className="cert-preview" src={certificate.image} alt={`Pratinjau ${certificate.title}`} loading="lazy" /></div>}
                 <h3>{certificate.title}</h3>
                 <p>{certificate.description}</p>
                 <div className="cert-footer"><span>{certificate.image ? 'IMAGE · SERTIFIKAT' : 'PDF · SERTIFIKAT'}</span><span><Check aria-hidden="true" /> TERSEDIA</span></div>
@@ -463,7 +459,9 @@ function Achievements() {
         {selectedCertificate?.image && (
           <div className="certificate-dialog-content">
             <button className="certificate-dialog-close" type="button" onClick={() => setSelectedCertificate(null)}>Tutup</button>
-            <img className={selectedCertificate.rotated ? 'certificate-dialog-image-rotated' : undefined} src={selectedCertificate.image} alt={selectedCertificate.title} />
+            <div className="certificate-dialog-image-frame">
+              <img src={selectedCertificate.image} alt={selectedCertificate.title} />
+            </div>
           </div>
         )}
       </dialog>
